@@ -1,0 +1,17 @@
+{
+  "name": "celcoin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/JeanBarbosa/celcoin.git",
+  "author": "Jean Barbosa <programmer.jean@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}
