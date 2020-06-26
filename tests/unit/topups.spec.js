@@ -90,7 +90,7 @@ describe('Class Topups', () => {
      }
   };
 
-    const response = await topup.postTopups(body);
+    const response = await topup.new(body);
 
     expect(response).toMatchObject({ transactionId: expect.any(Number)});
 
