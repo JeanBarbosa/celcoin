@@ -28,6 +28,22 @@ describe('Class Topups', () => {
 
   })
 
+  it('Find Provider', async () => {
+    const response = await topup.findProvider(61, '999999999');
+
+    const { data } = response;
+
+    const expected = {
+      nameProvider: "Vivo",
+      providerId: 2088,
+      errorCode: "000",
+      message: "SUCESSO",
+      status: 0
+    }
+
+    expect(data).toEqual(expected);
+  })
+
   it('Get Value of Provider', async () => {
 
     const response = await topup.getProviderValues(61, 2087);
