@@ -1,9 +1,11 @@
 const Celcoin = require('../../index');
 
 describe('Class Celcoin', () => {
+
+  const celcoin = new Celcoin('teste', 'teste');
+
   it('Get all Providers', async () => {
 
-    const celcoin = new Celcoin('teste', 'teste');
     const { providers } = await celcoin.topup.getProviders(61);
 
     const provider = {
@@ -21,6 +23,13 @@ describe('Class Celcoin', () => {
         expect.objectContaining(provider)
       ])
     )
+
+  })
+
+  it('Retrieve your balance info', async () => {
+    const response = await celcoin.merchant.balance();
+
+    expect(response).toMatchObject({ balance: expect.any(Number)});
 
   })
 });
