@@ -4,7 +4,9 @@ describe('Class Celcoin', () => {
   it('Get all Providers', async () => {
 
     const celcoin = new Celcoin('teste', 'teste');
-    const response = await celcoin.topup.getProviders(61);
+    const { data } = await celcoin.topup.getProviders(61);
+
+    const { providers } = data;
 
     const provider = {
         category: 1,
@@ -16,7 +18,7 @@ describe('Class Celcoin', () => {
         minValue: 0.0
     };
 
-    expect(response).toEqual(
+    expect(providers).toEqual(
       expect.arrayContaining([
         expect.objectContaining(provider)
       ])
