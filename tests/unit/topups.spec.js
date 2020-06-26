@@ -40,11 +40,13 @@ describe('Class Topups', () => {
     expect(response).toEqual(expected);
   })
 
-  it('Get Value of Provider', async () => {
+  it('Retrieve a list of Providers and its values', async () => {
 
     const response = await topup.getProviderValues(61, 2087);
 
-    const value = {
+    const { value } = response;
+
+    const expected = {
       properties: null,
       code: 0,
       cost: 0.0,
@@ -57,10 +59,10 @@ describe('Class Topups', () => {
       minValue: 13.0
     };
 
-    expect(response).toEqual(
+    expect(value).toEqual(
       expect.arrayContaining([
         expect.objectContaining(
-          value
+          expected
         )
       ])
     )
