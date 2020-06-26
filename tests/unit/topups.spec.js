@@ -88,12 +88,25 @@ describe('Class Topups', () => {
        "countryCode": 55,
        "number": "993576555"
      }
-  };
+    };
 
     const response = await topup.new(body);
 
     expect(response).toMatchObject({ transactionId: expect.any(Number)});
 
   })
+
+  /*
+  it('Capture a posted topup transaction', async () => {
+    const response = await topup.capture(3830743);
+
+    const expected = {
+      errorCode: '061',
+      message: 'Transacao nao esta pendente'
+    }
+
+    expect(response).toEqual(expected);
+
+  }) */
 
 });
