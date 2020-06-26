@@ -6,10 +6,8 @@ describe('Class Topups', () => {
 
   it('Get a list of providers', async () => {
 
-    const { data } = await topup.getProviders(61);
-
-    const { providers } = data;
-
+    const { providers } = await topup.getProviders(61);
+    
     const provider = {
       category: 1,
       name: "Claro",
@@ -31,8 +29,6 @@ describe('Class Topups', () => {
   it('Find Provider', async () => {
     const response = await topup.findProvider(61, '999999999');
 
-    const { data } = response;
-
     const expected = {
       nameProvider: "Vivo",
       providerId: 2088,
@@ -41,7 +37,7 @@ describe('Class Topups', () => {
       status: 0
     }
 
-    expect(data).toEqual(expected);
+    expect(response).toEqual(expected);
   })
 
   it('Get Value of Provider', async () => {

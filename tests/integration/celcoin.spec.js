@@ -4,9 +4,7 @@ describe('Class Celcoin', () => {
   it('Get all Providers', async () => {
 
     const celcoin = new Celcoin('teste', 'teste');
-    const { data } = await celcoin.topup.getProviders(61);
-
-    const { providers } = data;
+    const { providers } = await celcoin.topup.getProviders(61);
 
     const provider = {
         category: 1,
