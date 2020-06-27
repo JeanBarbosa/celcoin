@@ -1,4 +1,4 @@
-const Topups = require('../../lib/topups');
+import Topups from '../../lib/topups';
 
 describe('Class Topups', () => {
 

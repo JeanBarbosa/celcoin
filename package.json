@@ -14,8 +14,13 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/jest": "^26.0.3",
+    "babel-jest": "^26.1.0",
     "jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.5"
   }
 }

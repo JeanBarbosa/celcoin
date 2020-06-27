@@ -1,4 +1,4 @@
-const Celcoin = require('../../index');
+import { Celcoin } from '../../index';
 
 describe('Class Celcoin', () => {
 

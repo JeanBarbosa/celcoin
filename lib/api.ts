@@ -1,13 +1,13 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
  export default class Api {
 
-  private httpClient: any;
-  private clientId: any;
-  private clientSecret: any; 
+  private httpClient: AxiosInstance;
+  private clientId: string;
+  private clientSecret: string; 
   private sandbox: boolean;
 
-  constructor(clientId: any, clientSecret: any, sandbox: boolean = false){
+  constructor(clientId: string, clientSecret: string, sandbox: boolean = false){
 
     this.clientId = clientId;
     this.clientSecret = clientSecret;
@@ -25,7 +25,7 @@ import axios from 'axios';
     
   }
 
-  public getToken(clientId: any, clientSecret: any) {
+  public getToken(clientId: string, clientSecret: string) {
 
     const credentials:string = `${clientId}:${clientSecret}`;
     const enconde: any = Buffer.from(credentials, "utf8");

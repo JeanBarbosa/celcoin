@@ -1,4 +1,4 @@
-const Merchant = require('../../lib/merchant');
+import Merchant from '../../lib/merchant';
 
 describe('Class Merchant', () => {
 

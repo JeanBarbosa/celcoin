@@ -4,7 +4,7 @@ export default class Topups {
 
   private httpClient: any;
 
-  constructor(clientId: String, clientSecret: String, sandbox = false){
+  constructor(clientId: string, clientSecret: string, sandbox = false){
     this.httpClient = new Api(clientId, clientSecret);
   }
 
@@ -40,7 +40,7 @@ export default class Topups {
    * @param {int} stateCode DDD
    * @param {string} phoneNumber phone number
    */
-  async findProvider(stateCode: Number, phoneNumber: String) {
+  async findProvider(stateCode: Number, phoneNumber: string) {
 
     const url = `transactions/topups/find-providers`;
     const params = { stateCode, phoneNumber };
@@ -78,7 +78,7 @@ export default class Topups {
    * @param {int} providerId Service Code
    * @param {string} clientIdentification Unique ticket number
    */
-  async getProviderValuesSingleTicket(stateCode: Number, providerId: Number, clientID: String){
+  async getProviderValuesSingleTicket(stateCode: Number, providerId: Number, clientID: string){
     
     const url = `/v4/transactions/topups/provider-values-BilheteUnico`;
     const params = {
@@ -146,7 +146,7 @@ export default class Topups {
    * @param {int} externalNSU 
    * @param {string} externalTerminal 
    */
-  async cancel(transactionId: String, externalNSU = 0, externalTerminal = ''){
+  async cancel(transactionId: string, externalNSU = 0, externalTerminal = ''){
 
     const url = `/transactions/topups/${transactionId}/void`;
     const params = {
