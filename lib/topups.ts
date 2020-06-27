@@ -1,9 +1,11 @@
-const Api = require('./api');
+import Api from './api';
 
-class Topups {
+export default class Topups {
 
-  constructor(clientId, clientSecret, sandbox = false){
-    this._instance = new Api(clientId, clientSecret);
+  private httpClient: any;
+
+  constructor(clientId: String, clientSecret: String, sandbox = false){
+    this.httpClient = new Api(clientId, clientSecret);
   }
 
  /**
@@ -22,12 +24,12 @@ class Topups {
   * 4 for TRANSPORT
   * 5 for DIGITAL CONTENT
   */
-  async getProviders(stateCode, type = 0, category = 0) {
+  async getProviders(stateCode: Number, type = Number, category = Number) {
 
     const url = `transactions/topups/providers`;
     const params = {stateCode, type, category };
 
-    const { data } = await this._instance.get(url, params);
+    const { data } = await this.httpClient.get(url, params);
 
     return data;
   }
@@ -38,12 +40,12 @@ class Topups {
    * @param {int} stateCode DDD
    * @param {string} phoneNumber phone number
    */
-  async findProvider(stateCode, phoneNumber) {
+  async findProvider(stateCode: Number, phoneNumber: String) {
 
     const url = `transactions/topups/find-providers`;
-    const params = {stateCode, phoneNumber };
+    const params = { stateCode, phoneNumber };
 
-    const { data } = await this._instance.get(url, params);
+    const { data } = await this.httpClient.get(url, params);
 
     return data;
   }
@@ -55,7 +57,7 @@ class Topups {
    * @param {*} stateCode DDD
    * @param {*} providerId Service Code
    */
-  async getProviderValues(stateCode, providerId){
+  async getProviderValues(stateCode: Number, providerId: Number){
 
     const url = `/transactions/topups/provider-values`;
     const params = {
@@ -63,7 +65,7 @@ class Topups {
       providerId
     };
 
-    const { data } = await this._instance.get(url, params);
+    const { data } = await this.httpClient.get(url, params);
 
     return data;
   }
@@ -76,7 +78,7 @@ class Topups {
    * @param {int} providerId Service Code
    * @param {string} clientIdentification Unique ticket number
    */
-  async getProviderValuesSingleTicket(stateCode, providerId, clientID){
+  async getProviderValuesSingleTicket(stateCode: Number, providerId: Number, clientID: String){
     
     const url = `/v4/transactions/topups/provider-values-BilheteUnico`;
     const params = {
@@ -85,7 +87,7 @@ class Topups {
       clientIdentification: clientID
     };
 
-    const { data } = await this._instance.get(url, params);
+    const { data } = await this.httpClient.get(url, params);
 
     return data;
   }
@@ -95,10 +97,10 @@ class Topups {
    * 
    * @param {object} body 
    */
-  async newSingleTicket(body){
+  async newSingleTicket(body: object){
     
     const url = `/v4/transactions/topups/BilheteUnico`;
-    const {data} = await this._instance.post(url, body);
+    const {data} = await this.httpClient.post(url, body);
 
     return data;
   }
@@ -109,10 +111,10 @@ class Topups {
    * @param {object} body 
    * 
    */
-  async new(body){
+  async new(body: object){
     const url = `/transactions/topups`;
 
-    const {data} = await this._instance.post(url, body);
+    const {data} = await this.httpClient.post(url, body);
 
     return data;
   }
@@ -124,7 +126,7 @@ class Topups {
    * @param {int} externalNSU Transaction identifier
    * @param {string} externalTerminal Terminal identifier
    */
-  async capture(transactionId, externalNSU = 0, externalTerminal = ''){
+  async capture(transactionId: string, externalNSU = 0, externalTerminal = ''){
     
     const url = `/transactions/topups/${transactionId}/capture`;
     const params = {
@@ -132,7 +134,7 @@ class Topups {
       externalNSU
     }
 
-    const { data } = await this._instance.put(url, params);
+    const { data } = await this.httpClient.put(url, params);
 
     return data;
   }
@@ -144,7 +146,7 @@ class Topups {
    * @param {int} externalNSU 
    * @param {string} externalTerminal 
    */
-  async cancel(transactionId, externalNSU = 0, externalTerminal = ''){
+  async cancel(transactionId: String, externalNSU = 0, externalTerminal = ''){
 
     const url = `/transactions/topups/${transactionId}/void`;
     const params = {
@@ -152,11 +154,9 @@ class Topups {
       externalNSU
     }
 
-    const { data } = await this._instance.delete(url, params);
+    const { data } = await this.httpClient.delete(url, params);
 
     return data;
   }
 
 }
-
-module.exports = Topups;
