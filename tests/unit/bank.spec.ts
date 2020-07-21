@@ -10,10 +10,19 @@ describe('Class Bank', () => {
     expect(response).toMatchObject({ banks: expect.any(Array)});
   })
 
-
   it('Get a list of all pending transactions', async () => {
     const response = await bank.pendecy();
     expect(response).toMatchObject({ pendings: expect.any(Object)});
+  })
+
+  it('Get a list of occurrences', async () => {
+    const response = await bank.occurrency({
+      startDate: '03-03-2019',
+      endDate: '03-04-2019'
+    })
+
+    expect(response).toMatchObject({ occurrences: expect.any(Array)});
+
   })
 
 })
