@@ -46,7 +46,7 @@ import axios, { AxiosInstance } from 'axios';
     }
   }
 
-  public async get(url: string, params: object) {
+  public async get(url: string, params?: object) {
     try{
       return await this.httpClient.get(url, { params });
     }catch(err){
