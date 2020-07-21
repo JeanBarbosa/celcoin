@@ -46,4 +46,14 @@ export default class Bank {
     return data;
   }
 
+  /**
+   * Get a list of institutions
+   */
+  async institutions() {
+    const url = `/transactions/institutions`;
+    const { data } = await this.httpClient.get(url);
+
+    return data;
+  }
+
 }

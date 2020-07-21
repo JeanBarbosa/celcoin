@@ -25,4 +25,10 @@ describe('Class Bank', () => {
 
   })
 
+  it('Get all Get a list of institutions', async () => {
+    const response = await bank.institutions();
+
+    expect(response).toMatchObject({ convenants: expect.any(Array)});
+  })
+
 })
