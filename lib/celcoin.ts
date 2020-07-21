@@ -2,16 +2,16 @@ import Topups from './topups';
 import Merchant from './merchant';
 
 export default class Celcoin {
+  public clientId: string;
 
-  public clientId: String;
-  public clientSecret: String;
-  public sandbox:boolean;
+  public clientSecret: string;
 
-  constructor(clientId: String, clientSecret: String, sandbox = false){
+  public sandbox: boolean;
+
+  constructor(clientId: string, clientSecret: string, sandbox = false) {
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.sandbox = sandbox;
-
   }
 
   public get topup() {

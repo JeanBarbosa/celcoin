@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from 'axios';
 
   private httpClient: AxiosInstance;
   private clientId: string;
-  private clientSecret: string; 
+  private clientSecret: string;
   private sandbox: boolean;
 
   constructor(clientId: string, clientSecret: string, sandbox: boolean = false){
@@ -22,7 +22,7 @@ import axios, { AxiosInstance } from 'axios';
         'Authorization': token
       }
     });
-    
+
   }
 
   public getToken(clientId: string, clientSecret: string) {
@@ -33,7 +33,7 @@ import axios, { AxiosInstance } from 'axios';
     return enconde.toString('base64');
   }
 
-  public getBaseUrl(){
+  public getBaseUrl() {
     return "https://sandbox-apicorp.celcoin.com.br/v4";
   }
 
