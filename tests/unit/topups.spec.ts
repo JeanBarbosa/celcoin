@@ -4,7 +4,7 @@ describe('Class Topups', () => {
   const topup = new Topups('teste', 'teste');
 
   it('Get a list of providers', async () => {
-    const { providers } = await topup.getProviders({ stateCode:  61});
+    const { providers } = await topup.getProviders({ stateCode: 61 });
 
     const provider = {
       category: 1,
@@ -22,7 +22,7 @@ describe('Class Topups', () => {
   });
 
   it('Find Provider', async () => {
-    const response = await topup.findProvider({stateCode: 61, phoneNumber: '999999999'});
+    const response = await topup.findProvider({ stateCode: 61, phoneNumber: '999999999' });
 
     const expected = {
       nameProvider: 'Vivo',
@@ -41,16 +41,16 @@ describe('Class Topups', () => {
     const { value } = response;
 
     const expected = {
-      properties: null,
-      code: 0,
-      cost: 0.0,
-      detail: '',
-      productName: 'R$ 13,00',
-      checkSum: -2147483640,
-      dueProduct: 30,
-      valueBonus: 0.0,
-      maxValue: 13.0,
-      minValue: 13.0,
+      "checkSum": -2147483640,
+      "code": 0,
+      "cost": 0,
+      "detail": "",
+      "dueProduct": 20200724,
+      "maxValue": 13,
+      "minValue": 13,
+      "productName": "13,00",
+      "properties": null,
+      "valueBonus": 0
     };
 
     expect(value).toEqual(
